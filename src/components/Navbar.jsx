@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import ColloQLogo from "./ColloQLogo";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
 
-  useState(() => {
+  // Fixed: Changed to useEffect for scroll listener
+  useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
     };
@@ -28,35 +30,40 @@ export default function Navbar() {
       transition={{ duration: 0.5 }}
       className={`sticky top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-light-surface/95 backdrop-blur-md border-b border-light-border shadow-sm"
-          : "bg-light-surface"
+          ? "bg-white/95 backdrop-blur-md border-b border-amber-100 shadow-sm"
+          : "bg-white"
       }`}
     >
-      <div className="section-container py-4 flex items-center justify-between">
-        {/* Logo */}
-        <div className="text-2xl font-bold text-light-text-primary">
-          <span className="bg-gradient-to-r from-light-text-primary to-light-text-primary bg-clip-text text-transparent">
-            ColloQ
-          </span>
+      {/* The "grid grid-cols-3" approach ensures the middle div is 
+        mathematically centered regardless of the logo or button widths.
+      */}
+      <div className="section-container py-4 grid grid-cols-2 lg:grid-cols-3 items-center">
+        {/* 1. Left: Logo */}
+        <div className="flex justify-start">
+          <ColloQLogo />
         </div>
 
-        {/* Middle Links */}
-        <div className="hidden lg:flex gap-8 ml-12">
+        {/* 2. Middle: Links (Hidden on mobile) */}
+        <div className="hidden lg:flex justify-center gap-8">
           {links.map((link) => (
             <a
               key={link}
               href={`#${link.toLowerCase()}`}
-              className="text-light-text-muted hover:text-light-text-primary font-medium text-sm transition-colors duration-200"
+              className="text-slate-600 hover:text-amber-600 font-medium text-sm transition-colors duration-200"
             >
               {link}
             </a>
           ))}
         </div>
 
-        {/* Right Buttons */}
-        <div className="flex gap-3 items-center ml-auto">
-          <button className="btn-ghost text-sm hidden sm:block">Sign In</button>
-          <button className="btn-primary text-sm">Start Free</button>
+        {/* 3. Right: Buttons */}
+        <div className="flex gap-3 items-center justify-end">
+          <button className="text-slate-600 hover:text-amber-600 text-sm font-medium hidden sm:block px-4 py-2 transition-colors">
+            Sign In
+          </button>
+          <button className="bg-amber-500 hover:bg-amber-600 text-white px-5 py-2 rounded-full text-sm font-bold shadow-md shadow-amber-200 transition-all transform active:scale-95">
+            Start Free
+          </button>
         </div>
       </div>
     </motion.nav>

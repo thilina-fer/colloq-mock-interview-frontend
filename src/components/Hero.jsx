@@ -1,5 +1,37 @@
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+
+// Helper component for the count-up effect
+const Counter = ({ target, duration = 2, decimals = 0, suffix = "" }) => {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    let startTimestamp = null;
+    const step = (timestamp) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min(
+        (timestamp - startTimestamp) / (duration * 1000),
+        1,
+      );
+
+      const currentCount = progress * target;
+      setCount(currentCount);
+
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      }
+    };
+    window.requestAnimationFrame(step);
+  }, [target, duration]);
+
+  return (
+    <span>
+      {count.toFixed(decimals)}
+      {suffix}
+    </span>
+  );
+};
 
 export default function Hero() {
   const containerVariants = {
@@ -62,26 +94,26 @@ export default function Hero() {
               <button className="btn-ghost">View Plans</button>
             </motion.div>
 
-            {/* Mini Stats */}
+            {/* Mini Stats with Count-up Effect */}
             <motion.div
               variants={itemVariants}
               className="grid grid-cols-3 gap-8 pt-12 border-t border-light-border"
             >
               <div>
                 <p className="text-3xl font-bold text-light-text-primary">
-                  4.9/5
+                  <Counter target={4.9} decimals={1} suffix="/5" />
                 </p>
                 <p className="text-sm text-light-text-muted">Avg Rating</p>
               </div>
               <div>
                 <p className="text-3xl font-bold text-light-text-primary">
-                  10k+
+                  <Counter target={10} suffix="k+" />
                 </p>
                 <p className="text-sm text-light-text-muted">Sessions</p>
               </div>
               <div>
                 <p className="text-3xl font-bold text-light-text-primary">
-                  500+
+                  <Counter target={500} suffix="+" />
                 </p>
                 <p className="text-sm text-light-text-muted">Interviewers</p>
               </div>
