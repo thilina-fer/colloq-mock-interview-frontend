@@ -50,7 +50,7 @@ export default function AboutCandidate() {
 
   return (
     <section id="candidates" className="py-20 md:py-28 bg-light-surface">
-      <div className="section-container">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -76,38 +76,43 @@ export default function AboutCandidate() {
           {steps.map((step, index) => {
             const Icon = step.icon;
             return (
-              <div key={index}>
+              <div key={index} className="relative">
                 <motion.div
                   variants={itemVariants}
-                  whileHover={{ y: -8 }}
-                  className="card-base h-full"
+                  whileHover={{ 
+                    y: -8,
+                    borderColor: "rgb(251, 191, 36)", // amber-400
+                    boxShadow: "0 10px 25px -5px rgba(245, 158, 11, 0.1)"
+                  }}
+                  // Yellow themed card base
+                  className="bg-white border-2 border-amber-50 p-8 rounded-2xl h-full transition-all duration-300 shadow-sm"
                 >
-                  {/* Step Number */}
+                  {/* Step Number - Yellow Theme */}
                   <div className="mb-6">
-                    <div className="w-12 h-12 rounded-full bg-light-gray-200 border-2 border-light-text-primary flex items-center justify-center">
-                      <span className="text-lg font-bold text-light-text-primary">
+                    <div className="w-12 h-12 rounded-full bg-amber-50 border-2 border-amber-400 flex items-center justify-center">
+                      <span className="text-lg font-bold text-amber-600">
                         {index + 1}
                       </span>
                     </div>
                   </div>
 
-                  {/* Icon */}
+                  {/* Icon - Yellow Theme */}
                   <div className="mb-4">
-                    <Icon size={32} className="text-light-text-primary" />
+                    <Icon size={32} className="text-amber-500" />
                   </div>
 
                   {/* Content */}
-                  <h3 className="text-xl font-semibold text-light-text-primary mb-2">
+                  <h3 className="text-xl font-bold text-light-text-primary mb-2">
                     {step.title}
                   </h3>
-                  <p className="text-light-text-muted text-sm">
+                  <p className="text-light-text-muted text-sm leading-relaxed">
                     {step.description}
                   </p>
                 </motion.div>
 
-                {/* Connector Line */}
+                {/* Connector Line - Amber Tint */}
                 {index < steps.length - 1 && (
-                  <div className="hidden lg:block h-1 bg-light-gray-200 mt-6 -mx-6"></div>
+                  <div className="hidden lg:block absolute top-1/2 -right-3 w-6 h-0.5 bg-amber-100 z-0"></div>
                 )}
               </div>
             );

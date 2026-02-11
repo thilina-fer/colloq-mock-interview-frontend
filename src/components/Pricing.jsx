@@ -75,7 +75,7 @@ export default function Pricing() {
 
   return (
     <section id="pricing" className="py-20 md:py-28 bg-light-surface">
-      <div className="section-container">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -91,7 +91,7 @@ export default function Pricing() {
             or upgrade.
           </p>
 
-          {/* Toggle */}
+          {/* Toggle - Themed Amber */}
           <div className="flex items-center justify-center gap-4">
             <span
               className={`text-sm font-medium ${!isYearly ? "text-light-text-primary" : "text-light-text-muted"}`}
@@ -101,12 +101,12 @@ export default function Pricing() {
             <button
               onClick={() => setIsYearly(!isYearly)}
               className={`relative w-14 h-7 rounded-full transition-all duration-300 ${
-                isYearly ? "bg-light-text-primary" : "bg-light-gray-200"
+                isYearly ? "bg-amber-500" : "bg-gray-200"
               }`}
             >
               <motion.div
                 layout
-                className={`absolute top-1 w-5 h-5 bg-white rounded-full transition-all duration-300 ${
+                className={`absolute top-1 w-5 h-5 bg-white rounded-full shadow-sm ${
                   isYearly ? "left-7" : "left-1"
                 }`}
               ></motion.div>
@@ -115,8 +115,8 @@ export default function Pricing() {
               className={`text-sm font-medium ${isYearly ? "text-light-text-primary" : "text-light-text-muted"}`}
             >
               Yearly{" "}
-              <span className="text-xs text-light-text-muted font-normal">
-                (Save 17%)
+              <span className="text-xs text-amber-600 font-bold bg-amber-50 px-2 py-0.5 rounded-full ml-1">
+                Save 17%
               </span>
             </span>
           </div>
@@ -136,23 +136,30 @@ export default function Pricing() {
               variants={itemVariants}
               whileHover={
                 plan.highlighted
-                  ? { y: -12, boxShadow: "0 20px 40px rgba(0,0,0,0.12)" }
-                  : { y: -8 }
+                  ? {
+                      y: -12,
+                      boxShadow: "0 25px 50px -12px rgba(245, 158, 11, 0.2)",
+                    }
+                  : { y: -8, borderColor: "rgb(254, 243, 199)" }
               }
-              className={`card-base relative flex flex-col h-full ${
-                plan.highlighted ? "lg:scale-105 lg:shadow-xl" : ""
+              className={`relative flex flex-col h-full p-8 rounded-2xl bg-white transition-all duration-300 border-2 ${
+                plan.highlighted
+                  ? "border-amber-400 lg:scale-105 shadow-xl shadow-amber-900/5 z-10"
+                  : "border-amber-50 shadow-sm"
               }`}
             >
               {plan.highlighted && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <span className="bg-light-text-primary text-white text-xs font-bold px-4 py-1 rounded-full">
+                  <span className="bg-amber-500 text-white text-[10px] tracking-widest font-black px-4 py-1 rounded-full uppercase">
                     MOST POPULAR
                   </span>
                 </div>
               )}
 
               {/* Plan Name */}
-              <h3 className="text-2xl font-bold text-light-text-primary mb-2">
+              <h3
+                className={`text-2xl font-bold mb-2 ${plan.highlighted ? "text-amber-600" : "text-light-text-primary"}`}
+              >
                 {plan.name}
               </h3>
               <p className="text-light-text-muted text-sm mb-6">
@@ -162,7 +169,9 @@ export default function Pricing() {
               {/* Price */}
               <div className="mb-8">
                 <div className="flex items-baseline gap-1">
-                  <span className="text-5xl font-bold text-light-text-primary">
+                  <span
+                    className={`text-5xl font-bold ${plan.highlighted ? "text-slate-900" : "text-light-text-primary"}`}
+                  >
                     $
                     {plan.price === 0
                       ? "Free"
@@ -171,17 +180,19 @@ export default function Pricing() {
                         : plan.price}
                   </span>
                   {plan.price !== 0 && (
-                    <span className="text-light-text-muted">
+                    <span className="text-light-text-muted font-medium">
                       /{isYearly ? "year" : "month"}
                     </span>
                   )}
                 </div>
               </div>
 
-              {/* CTA Button */}
+              {/* CTA Button - Themed */}
               <button
-                className={`w-full py-3 rounded-lg font-medium transition-all duration-300 mb-8 ${
-                  plan.highlighted ? "btn-primary" : "btn-ghost"
+                className={`w-full py-3 rounded-xl font-bold transition-all duration-300 mb-8 shadow-sm ${
+                  plan.highlighted
+                    ? "bg-amber-500 text-white hover:bg-amber-600 shadow-amber-200"
+                    : "bg-amber-50 text-amber-700 hover:bg-amber-100 border border-amber-100"
                 }`}
               >
                 {plan.cta}
@@ -192,10 +203,10 @@ export default function Pricing() {
                 {plan.features.map((feature, featureIndex) => (
                   <div key={featureIndex} className="flex gap-3 items-start">
                     <Check
-                      size={20}
-                      className="text-light-text-primary flex-shrink-0 mt-0.5"
+                      size={18}
+                      className={`flex-shrink-0 mt-1 ${plan.highlighted ? "text-amber-500" : "text-amber-400"}`}
                     />
-                    <span className="text-light-text-muted text-sm">
+                    <span className="text-slate-600 text-sm leading-tight">
                       {feature}
                     </span>
                   </div>

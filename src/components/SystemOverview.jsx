@@ -50,7 +50,7 @@ export default function SystemOverview() {
 
   return (
     <section className="py-20 md:py-28 bg-light-bg">
-      <div className="section-container">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -80,15 +80,21 @@ export default function SystemOverview() {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                whileHover={{ y: -8 }}
-                className="card-base text-center"
+                whileHover={{ 
+                  y: -8, 
+                  borderColor: "rgb(251, 191, 36)", // amber-400
+                  boxShadow: "0 10px 25px -5px rgba(245, 158, 11, 0.15)"
+                }}
+                // Themed card base
+                className="bg-white border-2 border-amber-50 p-8 rounded-2xl text-center transition-all duration-300 shadow-sm"
               >
-                <div className="flex justify-center mb-4">
-                  <div className="p-3 bg-light-gray-100 rounded-lg">
-                    <Icon size={32} className="text-light-text-primary" />
+                <div className="flex justify-center mb-6">
+                  {/* Icon Container with Amber Theme */}
+                  <div className="p-4 bg-amber-50 rounded-2xl">
+                    <Icon size={32} className="text-amber-600" />
                   </div>
                 </div>
-                <h3 className="text-lg font-semibold text-light-text-primary mb-2">
+                <h3 className="text-xl font-bold text-light-text-primary mb-3">
                   {component.title}
                 </h3>
                 <p className="text-sm text-light-text-muted leading-relaxed">

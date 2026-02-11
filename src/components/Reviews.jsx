@@ -75,7 +75,7 @@ export default function Reviews() {
 
   return (
     <section id="reviews" className="py-20 md:py-28 bg-light-bg">
-      <div className="section-container">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header with Overall Rating */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16 items-center">
           <motion.div
@@ -93,18 +93,18 @@ export default function Reviews() {
             </p>
           </motion.div>
 
-          {/* Overall Rating Card */}
+          {/* Overall Rating Card - Yellow Theme */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6 }}
-            className="card-base text-center hidden lg:block"
+            className="bg-white border-2 border-amber-100 rounded-2xl p-8 text-center hidden lg:block shadow-sm"
           >
-            <p className="text-6xl font-bold text-light-text-primary mb-3">
+            <p className="text-6xl font-bold text-amber-500 mb-3">
               4.9
             </p>
-            <p className="text-light-text-muted mb-4">out of 5 stars</p>
+            <p className="text-light-text-muted mb-4 uppercase tracking-wide text-xs font-semibold">out of 5 stars</p>
             <div className="flex justify-center mb-4">
               <StarRating rating={5} size={24} />
             </div>
@@ -126,8 +126,12 @@ export default function Reviews() {
             <motion.div
               key={index}
               variants={itemVariants}
-              whileHover={{ y: -8, boxShadow: "0 12px 24px rgba(0,0,0,0.08)" }}
-              className="card-base flex flex-col"
+              whileHover={{ 
+                y: -8, 
+                boxShadow: "0 12px 24px rgba(245, 158, 11, 0.12)",
+                borderColor: "rgb(251, 191, 36)" 
+              }}
+              className="bg-white border border-amber-100 p-6 rounded-xl flex flex-col transition-colors duration-300"
             >
               {/* Stars */}
               <div className="mb-4">
@@ -140,11 +144,11 @@ export default function Reviews() {
               </p>
 
               {/* Author */}
-              <div className="border-t border-light-border pt-4">
+              <div className="border-t border-amber-50 pt-4">
                 <p className="font-semibold text-light-text-primary text-sm">
                   {testimonial.name}
                 </p>
-                <p className="text-xs text-light-text-muted">
+                <p className="text-xs text-amber-600 font-medium">
                   {testimonial.role}
                 </p>
               </div>
@@ -158,7 +162,7 @@ export default function Reviews() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6 }}
-          className="bg-light-surface border border-light-border rounded-xl p-8"
+          className="bg-white border border-light-border rounded-xl p-8"
         >
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {trustItems.map((item, index) => {
@@ -166,7 +170,7 @@ export default function Reviews() {
               return (
                 <div key={index} className="flex items-center gap-4">
                   <div className="flex-shrink-0">
-                    <Icon size={32} className="text-light-text-primary" />
+                    <Icon size={32} className="text-amber-500" />
                   </div>
                   <div>
                     <p className="font-semibold text-light-text-primary">
