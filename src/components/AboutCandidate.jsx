@@ -49,7 +49,7 @@ export default function AboutCandidate() {
   };
 
   return (
-    <section id="candidates" className="py-20 md:py-28 bg-steel-surface">
+    <section id="candidates" className="py-20 md:py-28 bg-light-surface">
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -58,10 +58,10 @@ export default function AboutCandidate() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-steel-text-primary mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-light-text-primary mb-4 heading-accent">
             Your Candidate Journey
           </h2>
-          <p className="text-lg text-steel-text-muted max-w-2xl mx-auto">
+          <p className="text-lg text-light-text-muted max-w-2xl mx-auto">
             Four simple steps to ace your next interview.
           </p>
         </motion.div>
@@ -84,8 +84,8 @@ export default function AboutCandidate() {
                 >
                   {/* Step Number */}
                   <div className="mb-6">
-                    <div className="w-12 h-12 rounded-full bg-steel-soft-2 border-2 border-steel-text-primary flex items-center justify-center">
-                      <span className="text-lg font-bold text-steel-text-primary">
+                    <div className="w-12 h-12 rounded-full bg-light-gray-200 border-2 border-light-text-primary flex items-center justify-center">
+                      <span className="text-lg font-bold text-light-text-primary">
                         {index + 1}
                       </span>
                     </div>
@@ -93,21 +93,21 @@ export default function AboutCandidate() {
 
                   {/* Icon */}
                   <div className="mb-4">
-                    <Icon size={32} className="text-steel-text-primary" />
+                    <Icon size={32} className="text-light-text-primary" />
                   </div>
 
                   {/* Content */}
-                  <h3 className="text-xl font-semibold text-steel-text-primary mb-2">
+                  <h3 className="text-xl font-semibold text-light-text-primary mb-2">
                     {step.title}
                   </h3>
-                  <p className="text-steel-text-muted text-sm">
+                  <p className="text-light-text-muted text-sm">
                     {step.description}
                   </p>
                 </motion.div>
 
                 {/* Connector Line */}
                 {index < steps.length - 1 && (
-                  <div className="hidden lg:block h-1 bg-steel-soft-2 mt-6 -mx-6"></div>
+                  <div className="hidden lg:block h-1 bg-light-gray-200 mt-6 -mx-6"></div>
                 )}
               </div>
             );

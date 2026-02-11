@@ -49,7 +49,7 @@ export default function SystemOverview() {
   };
 
   return (
-    <section className="py-20 md:py-28 bg-steel-bg">
+    <section className="py-20 md:py-28 bg-light-bg">
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -58,10 +58,10 @@ export default function SystemOverview() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-steel-text-primary mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-light-text-primary mb-4 heading-accent">
             How ColloQ Works
           </h2>
-          <p className="text-lg text-steel-text-muted max-w-2xl mx-auto">
+          <p className="text-lg text-light-text-muted max-w-2xl mx-auto">
             A seamless platform built on cutting-edge technology to deliver the
             best interview experience.
           </p>
@@ -84,14 +84,14 @@ export default function SystemOverview() {
                 className="card-base text-center"
               >
                 <div className="flex justify-center mb-4">
-                  <div className="p-3 bg-steel-soft-1 rounded-lg">
-                    <Icon size={32} className="text-steel-text-primary" />
+                  <div className="p-3 bg-[#FDE68A]/15 rounded-lg border border-[#FDE68A]/30">
+                    <Icon size={32} className="text-[#F59E0B]" />
                   </div>
                 </div>
-                <h3 className="text-lg font-semibold text-steel-text-primary mb-2">
+                <h3 className="text-lg font-semibold text-light-text-primary mb-2">
                   {component.title}
                 </h3>
-                <p className="text-sm text-steel-text-muted leading-relaxed">
+                <p className="text-sm text-light-text-muted leading-relaxed">
                   {component.description}
                 </p>
               </motion.div>

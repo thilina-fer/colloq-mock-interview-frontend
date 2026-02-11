@@ -28,14 +28,14 @@ export default function Navbar() {
       transition={{ duration: 0.5 }}
       className={`sticky top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-steel-surface/95 backdrop-blur-md border-b border-steel-border shadow-sm"
-          : "bg-steel-surface"
+          ? "bg-light-surface/95 backdrop-blur-md border-b border-light-border shadow-sm"
+          : "bg-light-surface"
       }`}
     >
       <div className="section-container py-4 flex items-center justify-between">
         {/* Logo */}
-        <div className="text-2xl font-bold text-steel-text-primary">
-          <span className="bg-gradient-to-r from-steel-text-primary to-steel-soft-6 bg-clip-text text-transparent">
+        <div className="text-2xl font-bold text-light-text-primary hover:text-[#F59E0B] transition-colors">
+          <span className="bg-gradient-to-r from-light-text-primary via-[#F59E0B] to-light-text-primary bg-clip-text text-transparent">
             ColloQ
           </span>
         </div>
@@ -46,7 +46,7 @@ export default function Navbar() {
             <a
               key={link}
               href={`#${link.toLowerCase()}`}
-              className="text-steel-text-muted hover:text-steel-text-primary font-medium text-sm transition-colors duration-200"
+              className="text-light-text-muted hover:text-light-text-primary font-medium text-sm transition-colors duration-200"
             >
               {link}
             </a>

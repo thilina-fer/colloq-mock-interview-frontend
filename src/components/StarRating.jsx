@@ -9,8 +9,8 @@ export default function StarRating({ rating = 5, size = 20 }) {
           size={size}
           className={
             i < Math.floor(rating)
-              ? "fill-steel-text-primary text-steel-text-primary"
-              : "text-steel-soft-3"
+              ? "fill-light-text-primary text-light-text-primary"
+              : "text-light-gray-300"
           }
         />
       ))}

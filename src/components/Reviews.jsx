@@ -74,7 +74,7 @@ export default function Reviews() {
   };
 
   return (
-    <section id="reviews" className="py-20 md:py-28 bg-steel-bg">
+    <section id="reviews" className="py-20 md:py-28 bg-light-bg">
       <div className="section-container">
         {/* Header with Overall Rating */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16 items-center">
@@ -84,10 +84,10 @@ export default function Reviews() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-steel-text-primary mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-light-text-primary mb-4 heading-accent">
               Loved by Candidates and Interviewers
             </h2>
-            <p className="text-lg text-steel-text-muted mb-6">
+            <p className="text-lg text-light-text-muted mb-6">
               Real reviews from real users who have transformed their interview
               journey on ColloQ.
             </p>
@@ -101,14 +101,14 @@ export default function Reviews() {
             transition={{ duration: 0.6 }}
             className="card-base text-center hidden lg:block"
           >
-            <p className="text-6xl font-bold text-steel-text-primary mb-3">
+            <p className="text-6xl font-bold text-light-text-primary mb-3">
               4.9
             </p>
-            <p className="text-steel-text-muted mb-4">out of 5 stars</p>
+            <p className="text-light-text-muted mb-4">out of 5 stars</p>
             <div className="flex justify-center mb-4">
               <StarRating rating={5} size={24} />
             </div>
-            <p className="text-sm text-steel-text-muted">
+            <p className="text-sm text-light-text-muted">
               Based on 2,847 reviews
             </p>
           </motion.div>
@@ -135,16 +135,16 @@ export default function Reviews() {
               </div>
 
               {/* Comment */}
-              <p className="text-steel-text-primary font-medium mb-6 flex-grow">
+              <p className="text-light-text-primary font-medium mb-6 flex-grow">
                 "{testimonial.comment}"
               </p>
 
               {/* Author */}
-              <div className="border-t border-steel-border pt-4">
-                <p className="font-semibold text-steel-text-primary text-sm">
+              <div className="border-t border-light-border pt-4">
+                <p className="font-semibold text-light-text-primary text-sm">
                   {testimonial.name}
                 </p>
-                <p className="text-xs text-steel-text-muted">
+                <p className="text-xs text-light-text-muted">
                   {testimonial.role}
                 </p>
               </div>
@@ -158,7 +158,7 @@ export default function Reviews() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6 }}
-          className="bg-steel-surface border border-steel-border rounded-xl p-8"
+          className="bg-light-surface border border-light-border rounded-xl p-8"
         >
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {trustItems.map((item, index) => {
@@ -166,13 +166,13 @@ export default function Reviews() {
               return (
                 <div key={index} className="flex items-center gap-4">
                   <div className="flex-shrink-0">
-                    <Icon size={32} className="text-steel-text-primary" />
+                    <Icon size={32} className="text-light-text-primary" />
                   </div>
                   <div>
-                    <p className="font-semibold text-steel-text-primary">
+                    <p className="font-semibold text-light-text-primary">
                       {item.label}
                     </p>
-                    <p className="text-sm text-steel-text-muted">
+                    <p className="text-sm text-light-text-muted">
                       {item.label === "Secure Payments" &&
                         "Industry-standard encryption"}
                       {item.label === "Verified Interviewers" &&

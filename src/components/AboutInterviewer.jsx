@@ -43,7 +43,7 @@ export default function AboutInterviewer() {
   };
 
   return (
-    <section id="interviewers" className="py-20 md:py-28 bg-steel-bg">
+    <section id="interviewers" className="py-20 md:py-28 bg-light-bg">
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -52,10 +52,10 @@ export default function AboutInterviewer() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-steel-text-primary mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-light-text-primary mb-4 heading-accent">
             For Experienced Interviewers
           </h2>
-          <p className="text-lg text-steel-text-muted max-w-2xl mx-auto">
+          <p className="text-lg text-light-text-muted max-w-2xl mx-auto">
             Turn your interviewing experience into a rewarding opportunity.
           </p>
         </motion.div>
@@ -79,12 +79,12 @@ export default function AboutInterviewer() {
                   className="card-base"
                 >
                   <div className="mb-4">
-                    <Icon size={32} className="text-steel-text-primary" />
+                    <Icon size={32} className="text-[#F59E0B]" />
                   </div>
-                  <h3 className="text-xl font-semibold text-steel-text-primary mb-2">
+                  <h3 className="text-xl font-semibold text-light-text-primary mb-2">
                     {benefit.title}
                   </h3>
-                  <p className="text-steel-text-muted text-sm">
+                  <p className="text-light-text-muted text-sm">
                     {benefit.description}
                   </p>
                 </motion.div>
@@ -102,46 +102,46 @@ export default function AboutInterviewer() {
           >
             {/* Avatar */}
             <div className="flex justify-center mb-6">
-              <div className="w-24 h-24 rounded-full bg-steel-soft-2 border-4 border-steel-border flex items-center justify-center">
-                <div className="w-20 h-20 rounded-full bg-steel-soft-4"></div>
+              <div className="w-24 h-24 rounded-full bg-light-gray-200 border-4 border-light-border flex items-center justify-center">
+                <div className="w-20 h-20 rounded-full bg-light-gray-400"></div>
               </div>
             </div>
 
             {/* Profile Info */}
             <div className="text-center mb-6">
-              <h4 className="text-xl font-semibold text-steel-text-primary mb-1">
+              <h4 className="text-xl font-semibold text-light-text-primary mb-1">
                 Sarah Johnson
               </h4>
-              <p className="text-sm text-steel-text-muted mb-2">
+              <p className="text-sm text-light-text-muted mb-2">
                 Senior Engineer at TechCorp
               </p>
               <div className="flex justify-center gap-2 mb-4">
-                <span className="text-xs bg-steel-soft-1 text-steel-text-primary px-2 py-1 rounded">
+                <span className="text-xs bg-light-gray-100 text-light-text-primary px-2 py-1 rounded">
                   React
                 </span>
-                <span className="text-xs bg-steel-soft-1 text-steel-text-primary px-2 py-1 rounded">
+                <span className="text-xs bg-light-gray-100 text-light-text-primary px-2 py-1 rounded">
                   Node.js
                 </span>
               </div>
             </div>
 
             {/* Stats */}
-            <div className="space-y-3 border-t border-steel-border pt-6">
+            <div className="space-y-3 border-t border-light-border pt-6">
               <div className="flex justify-between text-sm">
-                <span className="text-steel-text-muted">Response Rate</span>
-                <span className="font-semibold text-steel-text-primary">
+                <span className="text-light-text-muted">Response Rate</span>
+                <span className="font-semibold text-light-text-primary">
                   98%
                 </span>
               </div>
               <div className="flex justify-between text-sm">
-                <span className="text-steel-text-muted">Rating</span>
-                <span className="font-semibold text-steel-text-primary">
+                <span className="text-light-text-muted">Rating</span>
+                <span className="font-semibold text-light-text-primary">
                   4.9/5
                 </span>
               </div>
               <div className="flex justify-between text-sm">
-                <span className="text-steel-text-muted">Sessions Done</span>
-                <span className="font-semibold text-steel-text-primary">
+                <span className="text-light-text-muted">Sessions Done</span>
+                <span className="font-semibold text-light-text-primary">
                   342
                 </span>
               </div>

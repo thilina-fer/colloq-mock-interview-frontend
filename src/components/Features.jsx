@@ -68,7 +68,7 @@ export default function Features() {
   };
 
   return (
-    <section id="features" className="py-20 md:py-28 bg-steel-surface">
+    <section id="features" className="py-20 md:py-28 bg-light-surface">
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -77,10 +77,10 @@ export default function Features() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-steel-text-primary mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-light-text-primary mb-4 heading-accent">
             Everything You Need to Succeed
           </h2>
-          <p className="text-lg text-steel-text-muted max-w-2xl mx-auto">
+          <p className="text-lg text-light-text-muted max-w-2xl mx-auto">
             Comprehensive tools designed to help candidates and interviewers
             thrive in mock interview sessions.
           </p>
@@ -105,13 +105,13 @@ export default function Features() {
                 }}
                 className="card-base"
               >
-                <div className="mb-4">
-                  <Icon size={32} className="text-steel-text-primary" />
+                <div className="mb-4 p-2 rounded-lg bg-[#FDE68A]/10">
+                  <Icon size={32} className="text-[#F59E0B]" />
                 </div>
-                <h3 className="text-xl font-semibold text-steel-text-primary mb-3">
+                <h3 className="text-xl font-semibold text-light-text-primary mb-3">
                   {feature.title}
                 </h3>
-                <p className="text-steel-text-muted leading-relaxed">
+                <p className="text-light-text-muted leading-relaxed">
                   {feature.description}
                 </p>
               </motion.div>

@@ -74,7 +74,7 @@ export default function Pricing() {
   };
 
   return (
-    <section id="pricing" className="py-20 md:py-28 bg-steel-surface">
+    <section id="pricing" className="py-20 md:py-28 bg-light-surface">
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -83,10 +83,10 @@ export default function Pricing() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-steel-text-primary mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-light-text-primary mb-4 heading-accent">
             Simple, Transparent Pricing
           </h2>
-          <p className="text-lg text-steel-text-muted max-w-2xl mx-auto mb-8">
+          <p className="text-lg text-light-text-muted max-w-2xl mx-auto mb-8">
             Choose the plan that works best for you. Always flexible to change
             or upgrade.
           </p>
@@ -94,14 +94,14 @@ export default function Pricing() {
           {/* Toggle */}
           <div className="flex items-center justify-center gap-4">
             <span
-              className={`text-sm font-medium ${!isYearly ? "text-steel-text-primary" : "text-steel-text-muted"}`}
+              className={`text-sm font-medium ${!isYearly ? "text-light-text-primary" : "text-light-text-muted"}`}
             >
               Monthly
             </span>
             <button
               onClick={() => setIsYearly(!isYearly)}
               className={`relative w-14 h-7 rounded-full transition-all duration-300 ${
-                isYearly ? "bg-steel-text-primary" : "bg-steel-soft-2"
+                isYearly ? "bg-light-text-primary shadow-lg shadow-[#FDE68A]/30" : "bg-light-gray-200"
               }`}
             >
               <motion.div
@@ -112,10 +112,10 @@ export default function Pricing() {
               ></motion.div>
             </button>
             <span
-              className={`text-sm font-medium ${isYearly ? "text-steel-text-primary" : "text-steel-text-muted"}`}
+              className={`text-sm font-medium ${isYearly ? "text-light-text-primary" : "text-light-text-muted"}`}
             >
               Yearly{" "}
-              <span className="text-xs text-steel-text-muted font-normal">
+              <span className="text-xs text-light-text-muted font-normal">
                 (Save 17%)
               </span>
             </span>
@@ -141,31 +141,30 @@ export default function Pricing() {
               }
               className={`card-base relative flex flex-col h-full ${
                 plan.highlighted
-                  ? "lg:scale-105 lg:shadow-xl border-steel-text-primary/20"
+                  ? "lg:scale-105 lg:shadow-xl border-2 border-[#FDE68A]/40 shadow-xl shadow-[#FDE68A]/20"
                   : ""
               }`}
             >
-              {/* Most Popular Badge */}
               {plan.highlighted && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <span className="bg-steel-text-primary text-white text-xs font-bold px-4 py-1 rounded-full">
+                  <span className="bg-light-text-primary text-white text-xs font-bold px-4 py-1 rounded-full shadow-lg shadow-[#FDE68A]/30 border border-[#FDE68A]/40">
                     MOST POPULAR
                   </span>
                 </div>
               )}
 
               {/* Plan Name */}
-              <h3 className="text-2xl font-bold text-steel-text-primary mb-2">
+              <h3 className="text-2xl font-bold text-light-text-primary mb-2">
                 {plan.name}
               </h3>
-              <p className="text-steel-text-muted text-sm mb-6">
+              <p className="text-light-text-muted text-sm mb-6">
                 {plan.description}
               </p>
 
               {/* Price */}
               <div className="mb-8">
                 <div className="flex items-baseline gap-1">
-                  <span className="text-5xl font-bold text-steel-text-primary">
+                  <span className="text-5xl font-bold text-light-text-primary">
                     $
                     {plan.price === 0
                       ? "Free"
@@ -174,7 +173,7 @@ export default function Pricing() {
                         : plan.price}
                   </span>
                   {plan.price !== 0 && (
-                    <span className="text-steel-text-muted">
+                    <span className="text-light-text-muted">
                       /{isYearly ? "year" : "month"}
                     </span>
                   )}
@@ -196,9 +195,9 @@ export default function Pricing() {
                   <div key={featureIndex} className="flex gap-3 items-start">
                     <Check
                       size={20}
-                      className="text-steel-text-primary flex-shrink-0 mt-0.5"
+                      className="text-light-text-primary flex-shrink-0 mt-0.5"
                     />
-                    <span className="text-steel-text-muted text-sm">
+                    <span className="text-light-text-muted text-sm">
                       {feature}
                     </span>
                   </div>
