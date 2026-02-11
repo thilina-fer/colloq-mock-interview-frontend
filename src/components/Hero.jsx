@@ -91,7 +91,7 @@ export default function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* Right Mock Dashboard */}
+          {/* Right Hero Video */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -99,90 +99,11 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.3 }}
             className="relative"
           >
-            <div className="bg-light-surface border border-light-border rounded-2xl p-6 shadow-xl">
-              {/* Mock Header */}
-              <div className="flex items-center justify-between mb-6 pb-4 border-b border-light-gray-200">
-                <div className="flex gap-2">
-                  <div className="w-3 h-3 rounded-full bg-light-gray-400"></div>
-                  <div className="w-3 h-3 rounded-full bg-light-gray-400"></div>
-                  <div className="w-3 h-3 rounded-full bg-light-gray-400"></div>
-                </div>
-                <span className="text-xs font-medium text-light-text-muted">
-                  ColloQ Dashboard
-                </span>
-              </div>
-
-              {/* Mock Content Grid */}
-              <div className="space-y-4">
-                {/* Stats Row */}
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="bg-light-bg rounded-lg p-3 border border-light-gray-200">
-                    <p className="text-xs text-light-text-muted mb-1">
-                      Interviews Completed
-                    </p>
-                    <p className="text-2xl font-bold text-light-text-primary">
-                      12
-                    </p>
-                  </div>
-                  <div className="bg-light-bg rounded-lg p-3 border border-light-gray-200">
-                    <p className="text-xs text-light-text-muted mb-1">
-                      Avg Score
-                    </p>
-                    <p className="text-2xl font-bold text-light-text-primary">
-                      87%
-                    </p>
-                  </div>
-                </div>
-
-                {/* Chart Placeholder */}
-                <div className="bg-light-bg rounded-lg p-4 border border-light-gray-200 h-32 flex flex-col justify-end">
-                  <div className="flex items-end gap-1 h-16">
-                    {[40, 60, 55, 75, 85, 70, 80].map((height, i) => (
-                      <div
-                        key={i}
-                        className="flex-1 bg-light-gray-400 rounded-t opacity-40 hover:opacity-60 transition-opacity"
-                        style={{ height: `${height}%` }}
-                      ></div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Session Info */}
-                <div className="bg-light-bg rounded-lg p-3 border border-light-gray-200">
-                  <p className="text-xs text-light-text-muted mb-2">
-                    Recent Session
-                  </p>
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="text-sm font-medium text-light-text-primary">
-                        React Interview
-                      </p>
-                      <p className="text-xs text-light-text-muted">
-                        with John Smith
-                      </p>
-                    </div>
-                    <span className="text-xs font-semibold text-light-text-primary bg-light-gray-100 px-2 py-1 rounded">
-                      90%
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Floating Card */}
-            <motion.div
-              animate={{ y: [0, -8, 0] }}
-              transition={{ duration: 3, repeat: Infinity }}
-              className="absolute -bottom-6 -left-6 bg-light-surface border-2 border-[#FDE68A]/40 rounded-lg p-4 shadow-lg shadow-[#FDE68A]/20 max-w-xs hidden md:block"
-            >
-              <p className="text-xs text-light-text-muted mb-2">
-                Next Scheduled
-              </p>
-              <p className="text-sm font-semibold text-light-text-primary">
-                Systems Design
-              </p>
-              <p className="text-xs text-light-text-muted">Today at 3:00 PM</p>
-            </motion.div>
+            <img
+              src="https://i.pinimg.com/736x/b2/b7/b3/b2b7b3a7943f5bf7d10f61a5b67c4e89.jpg"
+              alt="ColloQ Interview Platform"
+              className="w-full h-auto max-h-96 rounded-2xl shadow-xl border border-light-border object-cover"
+            />
           </motion.div>
         </div>
       </div>
