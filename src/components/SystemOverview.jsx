@@ -58,7 +58,7 @@ export default function SystemOverview() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-light-text-primary mb-4 heading-accent">
+          <h2 className="text-4xl md:text-5xl font-bold text-light-text-primary mb-4">
             How ColloQ Works
           </h2>
           <p className="text-lg text-light-text-muted max-w-2xl mx-auto">
@@ -84,8 +84,8 @@ export default function SystemOverview() {
                 className="card-base text-center"
               >
                 <div className="flex justify-center mb-4">
-                  <div className="p-3 bg-[#FDE68A]/15 rounded-lg border border-[#FDE68A]/30">
-                    <Icon size={32} className="text-[#F59E0B]" />
+                  <div className="p-3 bg-light-gray-100 rounded-lg">
+                    <Icon size={32} className="text-light-text-primary" />
                   </div>
                 </div>
                 <h3 className="text-lg font-semibold text-light-text-primary mb-2">

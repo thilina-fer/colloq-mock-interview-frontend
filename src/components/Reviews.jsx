@@ -84,7 +84,7 @@ export default function Reviews() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-light-text-primary mb-4 heading-accent">
+            <h2 className="text-4xl md:text-5xl font-bold text-light-text-primary mb-4">
               Loved by Candidates and Interviewers
             </h2>
             <p className="text-lg text-light-text-muted mb-6">

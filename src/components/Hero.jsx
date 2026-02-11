@@ -36,7 +36,7 @@ export default function Hero() {
           >
             <motion.h1
               variants={itemVariants}
-              className="text-5xl md:text-6xl font-bold text-light-text-primary leading-tight heading-accent"
+              className="text-5xl md:text-6xl font-bold text-light-text-primary leading-tight"
             >
               Ace Your Next Interview with Realistic Mock Sessions
             </motion.h1>
@@ -53,22 +53,19 @@ export default function Hero() {
               variants={itemVariants}
               className="flex flex-col sm:flex-row gap-4 pt-4"
             >
-              <button className="btn-primary group flex items-center justify-center sm:justify-start gap-2 bg-light-text-primary hover:bg-[#0B1220] hover:shadow-lg hover:shadow-[#FDE68A]/20 hover:scale-105">
-                Start Free{" "}
-                <ArrowRight
-                  size={18}
-                  className="group-hover:translate-x-1 transition-transform"
-                />
+              <button className="btn-primary group flex items-center justify-center sm:justify-start gap-3">
+                Start Free
+                <span className="p-2 bg-gradient-to-r from-yellow-200 via-yellow-300 to-yellow-500 rounded-full flex items-center justify-center transition-transform group-hover:translate-x-1">
+                  <ArrowRight size={18} className="text-black" />
+                </span>
               </button>
-              <button className="btn-ghost hover:bg-[#FDE68A]/10 hover:border-[#FDE68A]/60 hover:text-light-text-primary">
-                View Plans
-              </button>
+              <button className="btn-ghost">View Plans</button>
             </motion.div>
 
             {/* Mini Stats */}
             <motion.div
               variants={itemVariants}
-              className="grid grid-cols-3 gap-8 pt-12 border-t-2 border-[#FDE68A]/30"
+              className="grid grid-cols-3 gap-8 pt-12 border-t border-light-border"
             >
               <div>
                 <p className="text-3xl font-bold text-light-text-primary">
@@ -98,13 +95,13 @@ export default function Hero() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.7, delay: 0.3 }}
             animate={{ y: [0, -12, 0] }}
-            whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(253, 230, 138, 0.3)" }}
-            className="relative cursor-pointer"
+            className="relative"
           >
+            <div className="absolute -left-8 -top-8 w-56 h-56 rounded-full bg-gradient-to-br from-yellow-100 to-yellow-300 opacity-70 blur-3xl pointer-events-none"></div>
             <img
               src="https://i.pinimg.com/736x/b2/b7/b3/b2b7b3a7943f5bf7d10f61a5b67c4e89.jpg"
               alt="ColloQ Interview Platform"
-              className="w-full h-auto max-h-96 rounded-2xl shadow-xl border border-light-border object-cover transition-all duration-300"
+              className="w-full h-auto max-h-96 rounded-2xl shadow-xl border border-light-border object-cover transition-all duration-300 relative"
             />
           </motion.div>
         </div>

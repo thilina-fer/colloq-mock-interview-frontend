@@ -83,7 +83,7 @@ export default function Pricing() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-light-text-primary mb-4 heading-accent">
+          <h2 className="text-4xl md:text-5xl font-bold text-light-text-primary mb-4">
             Simple, Transparent Pricing
           </h2>
           <p className="text-lg text-light-text-muted max-w-2xl mx-auto mb-8">
@@ -101,7 +101,7 @@ export default function Pricing() {
             <button
               onClick={() => setIsYearly(!isYearly)}
               className={`relative w-14 h-7 rounded-full transition-all duration-300 ${
-                isYearly ? "bg-light-text-primary shadow-lg shadow-[#FDE68A]/30" : "bg-light-gray-200"
+                isYearly ? "bg-light-text-primary" : "bg-light-gray-200"
               }`}
             >
               <motion.div
@@ -140,14 +140,12 @@ export default function Pricing() {
                   : { y: -8 }
               }
               className={`card-base relative flex flex-col h-full ${
-                plan.highlighted
-                  ? "lg:scale-105 lg:shadow-xl border-2 border-[#FDE68A]/40 shadow-xl shadow-[#FDE68A]/20"
-                  : ""
+                plan.highlighted ? "lg:scale-105 lg:shadow-xl" : ""
               }`}
             >
               {plan.highlighted && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <span className="bg-light-text-primary text-white text-xs font-bold px-4 py-1 rounded-full shadow-lg shadow-[#FDE68A]/30 border border-[#FDE68A]/40">
+                  <span className="bg-light-text-primary text-white text-xs font-bold px-4 py-1 rounded-full">
                     MOST POPULAR
                   </span>
                 </div>

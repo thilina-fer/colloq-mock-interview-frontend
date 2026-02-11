@@ -77,7 +77,7 @@ export default function Features() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-light-text-primary mb-4 heading-accent">
+          <h2 className="text-4xl md:text-5xl font-bold text-light-text-primary mb-4">
             Everything You Need to Succeed
           </h2>
           <p className="text-lg text-light-text-muted max-w-2xl mx-auto">
@@ -105,8 +105,10 @@ export default function Features() {
                 }}
                 className="card-base"
               >
-                <div className="mb-4 p-2 rounded-lg bg-[#FDE68A]/10">
-                  <Icon size={32} className="text-[#F59E0B]" />
+                <div className="mb-4">
+                  <span className="icon-gradient-bg p-3 rounded-lg inline-flex items-center justify-center">
+                    <Icon size={24} className="text-white" />
+                  </span>
                 </div>
                 <h3 className="text-xl font-semibold text-light-text-primary mb-3">
                   {feature.title}

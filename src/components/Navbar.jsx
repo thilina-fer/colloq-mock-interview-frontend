@@ -34,8 +34,8 @@ export default function Navbar() {
     >
       <div className="section-container py-4 flex items-center justify-between">
         {/* Logo */}
-        <div className="text-2xl font-bold text-light-text-primary hover:text-[#F59E0B] transition-colors">
-          <span className="bg-gradient-to-r from-light-text-primary via-[#F59E0B] to-light-text-primary bg-clip-text text-transparent">
+        <div className="text-2xl font-bold text-light-text-primary">
+          <span className="bg-gradient-to-r from-light-text-primary to-light-text-primary bg-clip-text text-transparent">
             ColloQ
           </span>
         </div>

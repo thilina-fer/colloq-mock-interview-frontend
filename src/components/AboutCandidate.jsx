@@ -58,7 +58,7 @@ export default function AboutCandidate() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-light-text-primary mb-4 heading-accent">
+          <h2 className="text-4xl md:text-5xl font-bold text-light-text-primary mb-4">
             Your Candidate Journey
           </h2>
           <p className="text-lg text-light-text-muted max-w-2xl mx-auto">
