@@ -91,18 +91,20 @@ export default function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* Right Hero Video */}
+          {/* Right Hero Image */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.7, delay: 0.3 }}
-            className="relative"
+            animate={{ y: [0, -12, 0] }}
+            whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(253, 230, 138, 0.3)" }}
+            className="relative cursor-pointer"
           >
             <img
               src="https://i.pinimg.com/736x/b2/b7/b3/b2b7b3a7943f5bf7d10f61a5b67c4e89.jpg"
               alt="ColloQ Interview Platform"
-              className="w-full h-auto max-h-96 rounded-2xl shadow-xl border border-light-border object-cover"
+              className="w-full h-auto max-h-96 rounded-2xl shadow-xl border border-light-border object-cover transition-all duration-300"
             />
           </motion.div>
         </div>
