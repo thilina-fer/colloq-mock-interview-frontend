@@ -69,7 +69,7 @@ export default function Features() {
 
   return (
     <section id="features" className="py-20 md:py-28 bg-light-surface">
-      <div className="section-container">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -99,23 +99,37 @@ export default function Features() {
               <motion.div
                 key={index}
                 variants={itemVariants}
+                // Mouse hover animations
                 whileHover={{
-                  y: -8,
-                  boxShadow: "0 12px 24px rgba(0,0,0,0.08)",
+                  y: -10,
+                  borderColor: "rgb(245, 158, 11)", // amber-500
+                  transition: { duration: 0.3, ease: "easeOut" }
                 }}
-                className="card-base"
+                className="group bg-white border-2 border-amber-50 p-8 rounded-2xl transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-amber-500/10 cursor-default"
               >
-                <div className="mb-4">
-                  <span className="icon-gradient-bg p-3 rounded-lg inline-flex items-center justify-center">
-                    <Icon size={24} className="text-white" />
-                  </span>
+                <div className="mb-6 relative">
+                  {/* Icon container with hover animation */}
+                  <motion.div 
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    className="bg-amber-50 p-4 rounded-2xl inline-flex items-center justify-center transition-colors group-hover:bg-amber-100"
+                  >
+                    <Icon 
+                      size={28} 
+                      className="text-slate-400 group-hover:text-amber-600 transition-colors duration-300" 
+                    />
+                  </motion.div>
                 </div>
-                <h3 className="text-xl font-semibold text-light-text-primary mb-3">
+
+                <h3 className="text-xl font-bold text-light-text-primary mb-3 group-hover:text-amber-600 transition-colors duration-300">
                   {feature.title}
                 </h3>
-                <p className="text-light-text-muted leading-relaxed">
+                
+                <p className="text-slate-500 text-sm leading-relaxed">
                   {feature.description}
                 </p>
+
+                {/* Optional: Simple yellow bar that grows on hover */}
+                <div className="mt-6 h-1 w-0 bg-amber-500 rounded-full transition-all duration-500 group-hover:w-12"></div>
               </motion.div>
             );
           })}

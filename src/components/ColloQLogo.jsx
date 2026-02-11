@@ -1,6 +1,6 @@
 import React from "react";
 
-const ColloQLogo = ({ size = "text-4xl", className = "" }) => {
+const ColloQLogo = ({ size = "text-2xl", className = "" }) => {
   return (
     <div
       className={`flex items-center font-bold tracking-tight ${size} ${className}`}
@@ -11,15 +11,15 @@ const ColloQLogo = ({ size = "text-4xl", className = "" }) => {
       </span>
 
       {/* "Q" part with Icon integration */}
-      <div className="relative flex items-center justify-center ml-1">
+      <div className="relative flex items-center justify-center ml-0.5">
         {/* The Black 'Q' base */}
         <span className="text-black dark:text-gray-800">Q</span>
 
-        {/* Minimalist Sound/Wave Icon inside or next to Q */}
-        <div className="absolute -right-1 bottom-1 flex gap-[2px] items-end">
-          <div className="w-[3px] h-2 bg-gray-400 rounded-full animate-pulse"></div>
-          <div className="w-[3px] h-4 bg-orange-500 rounded-full animate-pulse delay-75"></div>
-          <div className="w-[3px] h-3 bg-gray-600 rounded-full animate-pulse delay-150"></div>
+        {/* Minimalist Sound/Wave Icon - letter size ekata galapenna adjust kala */}
+        <div className="absolute -right-1 bottom-0.5 flex gap-[1.5px] items-end">
+          <div className="w-[2px] h-1.5 bg-gray-400 rounded-full animate-pulse"></div>
+          <div className="w-[2px] h-3 bg-orange-500 rounded-full animate-pulse delay-75"></div>
+          <div className="w-[2px] h-2.5 bg-gray-600 rounded-full animate-pulse delay-150"></div>
         </div>
       </div>
     </div>
