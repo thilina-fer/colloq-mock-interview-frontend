@@ -1,13 +1,13 @@
 import { useEffect } from "react";
-import Navbar from "../components/Navbar";
-import Hero from "../components/Hero";
-import Features from "../components/Features";
-import AboutInterviewer from "../components/AboutInterviewer";
-import AboutCandidate from "../components/AboutCandidate";
-import Reviews from "../components/Reviews";
-import Pricing from "../components/Pricing";
-import SystemOverview from "../components/SystemOverview";
-import Footer from "../components/Footer";
+import Navbar from "../components/LandinPage/Navbar";
+import Hero from "../components/LandinPage/Hero";
+import AboutInterviewer from "../components/LandinPage/AboutInterviewer";
+import AboutCandidate from "../components/LandinPage/AboutCandidate";
+import Reviews from "../components/LandinPage/Reviews";
+import Pricing from "../components/LandinPage/Pricing";
+import SystemOverview from "../components/LandinPage/SystemOverview";
+import Footer from "../components/LandinPage/Footer";
+import { Feather } from "lucide-react";
 
 export default function LandingPage() {
   useEffect(() => {
@@ -22,7 +22,7 @@ export default function LandingPage() {
     <div className="min-h-screen bg-light-bg">
       <Navbar />
       <Hero />
-      <Features />
+      <Feather />
       <AboutInterviewer />
       <AboutCandidate />
       <Reviews />
