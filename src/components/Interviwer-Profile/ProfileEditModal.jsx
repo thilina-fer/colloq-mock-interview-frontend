@@ -1,181 +1,229 @@
-import React, { useState, useEffect } from "react";
-import Modal from "./Modal";
-import Toast from "./Toast";
-import { Linkedin, Github, X } from "lucide-react";
+import React, { useState, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  X,
+  Camera,
+  Save,
+  Github,
+  Linkedin,
+  FileText,
+  Upload,
+} from "lucide-react";
 
-const defaultProfile = {
-  name: "Priya Sharma",
-  email: "priya.sharma@email.com",
-  bio: "Senior Software Engineer passionate about system design, DSA, and mentoring aspiring candidates.",
-  avatar: "https://randomuser.me/api/portraits/women/68.jpg",
-  skills: ["System Design", "DSA", "React", "Node.js", "Leadership"],
-  linkedin: "https://linkedin.com/in/priyasharma",
-  github: "https://github.com/priyasharma",
-};
+const ProfileEditModal = ({ open, onClose, setToast }) => {
+  const fileInputRef = useRef(null);
+  const cvInputRef = useRef(null);
 
-export default function ProfileEditModal({ open, onClose, setToast }) {
-  const [form, setForm] = useState(defaultProfile);
-  const [skillInput, setSkillInput] = useState("");
+  const [formData, setFormData] = useState({
+    name: "Priya Sharma",
+    email: "priya.sharma@email.com",
+    location: "Colombo, Western Province",
+    bio: "Senior Software Engineer passionate about system design, DSA, and mentoring aspiring candidates.",
+    skills: "System Design, DSA, React, Node.js, Leadership",
+    github: "https://github.com/priyasharma",
+    linkedin: "https://linkedin.com/in/priyasharma",
+    avatar: "https://randomuser.me/api/portraits/women/68.jpg",
+    cvName: "My_Resume.pdf",
+  });
 
-  useEffect(() => {
-    if (open) {
-      setForm(defaultProfile);
-      setSkillInput("");
-    }
-  }, [open]);
-
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  const handleAddSkill = () => {
-    if (skillInput.trim() && !form.skills.includes(skillInput.trim())) {
-      setForm({ ...form, skills: [...form.skills, skillInput.trim()] });
-      setSkillInput("");
-    }
-  };
-
-  const handleRemoveSkill = (skill) => {
-    setForm({ ...form, skills: form.skills.filter((s) => s !== skill) });
-  };
-
-  const handleSubmit = (e) => {
+  const handleSave = (e) => {
     e.preventDefault();
-    if (!form.name.trim() || !form.email.trim()) {
-      setToast({ type: "error", message: "Name and Email are required." });
-      return;
+    if (setToast) {
+      setToast({ message: "Profile updated successfully!", type: "success" });
     }
-    setToast({ type: "success", message: "Saved (Demo Only)" });
     onClose();
   };
 
+  if (!open) return null;
+
   return (
-    <Modal open={open} onClose={onClose} title="Edit Profile">
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div className="flex flex-col items-center gap-2">
-          <img
-            src={form.avatar}
-            alt="Avatar"
-            className="w-20 h-20 rounded-full object-cover border-2 border-[#FACC15]"
-          />
-          <input
-            type="url"
-            name="avatar"
-            value={form.avatar}
-            onChange={handleChange}
-            className="w-full border border-[#E2E8F0] rounded-lg px-3 py-1 text-sm"
-            placeholder="Profile Image URL"
-          />
-        </div>
-        <div className="flex flex-col gap-2">
-          <label className="text-sm font-medium text-[#0F172A]">
-            Full Name
-          </label>
-          <input
-            type="text"
-            name="name"
-            value={form.name}
-            onChange={handleChange}
-            className="w-full border border-[#E2E8F0] rounded-lg px-3 py-2"
-            required
-          />
-        </div>
-        <div className="flex flex-col gap-2">
-          <label className="text-sm font-medium text-[#0F172A]">Email</label>
-          <input
-            type="email"
-            name="email"
-            value={form.email}
-            onChange={handleChange}
-            className="w-full border border-[#E2E8F0] rounded-lg px-3 py-2"
-            required
-          />
-        </div>
-        <div className="flex flex-col gap-2">
-          <label className="text-sm font-medium text-[#0F172A]">Bio</label>
-          <textarea
-            name="bio"
-            value={form.bio}
-            onChange={handleChange}
-            className="w-full border border-[#E2E8F0] rounded-lg px-3 py-2 min-h-[60px]"
-          />
-        </div>
-        <div className="flex flex-col gap-2">
-          <label className="text-sm font-medium text-[#0F172A]">Skills</label>
-          <div className="flex flex-wrap gap-2 mb-2">
-            {form.skills.map((skill) => (
-              <span
-                key={skill}
-                className="flex items-center bg-[#F8FAFC] border border-[#E2E8F0] text-[#64748B] px-3 py-1 rounded-full text-xs font-medium"
-              >
-                {skill}
-                <button
-                  type="button"
-                  className="ml-1 text-[#F87171] hover:text-[#B91C1C]"
-                  onClick={() => handleRemoveSkill(skill)}
-                >
-                  <X className="w-3 h-3" />
-                </button>
-              </span>
-            ))}
-          </div>
-          <div className="flex gap-2">
-            <input
-              type="text"
-              value={skillInput}
-              onChange={(e) => setSkillInput(e.target.value)}
-              className="flex-1 border border-[#E2E8F0] rounded-lg px-3 py-1 text-sm"
-              placeholder="Add skill"
-            />
+    <AnimatePresence>
+      <div className="fixed inset-0 z-[110] flex items-center justify-center p-4">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={onClose}
+          className="absolute inset-0 bg-black/40 backdrop-blur-sm"
+        />
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95, y: 20 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          exit={{ opacity: 0, scale: 0.95, y: 20 }}
+          className="relative bg-white w-full max-w-2xl rounded-[2.5rem] shadow-2xl overflow-hidden max-h-[90vh] flex flex-col"
+        >
+          {/* Static Header */}
+          <div className="px-8 py-5 border-b border-gray-100 flex justify-between items-center bg-gray-50/50 shrink-0">
+            <h2 className="text-xl font-bold text-gray-800 tracking-tight">
+              Edit Expert Profile
+            </h2>
             <button
-              type="button"
-              onClick={handleAddSkill}
-              className="bg-[#FACC15] text-[#0F172A] px-3 py-1 rounded-lg font-semibold hover:scale-105 transition"
+              onClick={onClose}
+              className="p-2 hover:bg-gray-200 rounded-full transition-colors"
             >
-              Add
+              <X className="w-5 h-5 text-gray-500" />
             </button>
           </div>
-        </div>
-        <div className="flex flex-col gap-2">
-          <label className="text-sm font-medium text-[#0F172A]">
-            LinkedIn URL
-          </label>
-          <input
-            type="url"
-            name="linkedin"
-            value={form.linkedin}
-            onChange={handleChange}
-            className="w-full border border-[#E2E8F0] rounded-lg px-3 py-2"
-          />
-        </div>
-        <div className="flex flex-col gap-2">
-          <label className="text-sm font-medium text-[#0F172A]">
-            GitHub URL
-          </label>
-          <input
-            type="url"
-            name="github"
-            value={form.github}
-            onChange={handleChange}
-            className="w-full border border-[#E2E8F0] rounded-lg px-3 py-2"
-          />
-        </div>
-        <div className="flex gap-2 justify-end mt-4">
-          <button
-            type="button"
-            onClick={onClose}
-            className="px-4 py-2 rounded-lg border border-[#E2E8F0] text-[#64748B] font-medium hover:bg-[#F8FAFC] transition"
-          >
-            Cancel
-          </button>
-          <button
-            type="submit"
-            className="px-4 py-2 rounded-lg bg-[#FACC15] text-[#0F172A] font-semibold hover:scale-105 transition"
-          >
-            Save
-          </button>
-        </div>
-      </form>
-    </Modal>
+
+          {/* Scrollable Container */}
+          <div className="overflow-y-auto custom-scrollbar">
+            <form onSubmit={handleSave} className="p-8 space-y-6">
+              {/* Photo Section */}
+              <div className="flex flex-col items-center gap-3">
+                <div
+                  className="relative group cursor-pointer"
+                  onClick={() => fileInputRef.current.click()}
+                >
+                  <img
+                    src={formData.avatar}
+                    className="w-28 h-28 rounded-[2rem] object-cover border-4 border-white shadow-lg transition group-hover:brightness-75"
+                    alt="Profile"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                    <Camera className="w-8 h-8 text-white" />
+                  </div>
+                  <input
+                    type="file"
+                    ref={fileInputRef}
+                    className="hidden"
+                    accept="image/*"
+                  />
+                </div>
+                <p className="text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em]">
+                  Change Profile Photo
+                </p>
+              </div>
+
+              {/* Name & Location */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div className="space-y-1">
+                  <label className="text-[11px] font-bold text-gray-400 uppercase tracking-widest ml-1">
+                    Full Name
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.name}
+                    onChange={(e) =>
+                      setFormData({ ...formData, name: e.target.value })
+                    }
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-[#FACC15] outline-none text-sm transition-all"
+                  />
+                </div>
+                <div className="space-y-1">
+                  <label className="text-[11px] font-bold text-gray-400 uppercase tracking-widest ml-1">
+                    Location
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.location}
+                    onChange={(e) =>
+                      setFormData({ ...formData, location: e.target.value })
+                    }
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-[#FACC15] outline-none text-sm transition-all"
+                  />
+                </div>
+              </div>
+
+              {/* Bio */}
+              <div className="space-y-1">
+                <label className="text-[11px] font-bold text-gray-400 uppercase tracking-widest ml-1">
+                  Bio
+                </label>
+                <textarea
+                  rows="3"
+                  value={formData.bio}
+                  onChange={(e) =>
+                    setFormData({ ...formData, bio: e.target.value })
+                  }
+                  className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-[#FACC15] outline-none text-sm transition-all resize-none font-medium"
+                />
+              </div>
+
+              {/* Social Links */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div className="space-y-1">
+                  <label className="text-[11px] font-bold text-gray-400 uppercase tracking-widest ml-1 flex items-center gap-2">
+                    <Github className="w-3 h-3" /> GitHub URL
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.github}
+                    onChange={(e) =>
+                      setFormData({ ...formData, github: e.target.value })
+                    }
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-[#FACC15] outline-none text-sm transition-all"
+                  />
+                </div>
+                <div className="space-y-1">
+                  <label className="text-[11px] font-bold text-gray-400 uppercase tracking-widest ml-1 flex items-center gap-2">
+                    <Linkedin className="w-3 h-3" /> LinkedIn URL
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.linkedin}
+                    onChange={(e) =>
+                      setFormData({ ...formData, linkedin: e.target.value })
+                    }
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-[#FACC15] outline-none text-sm transition-all"
+                  />
+                </div>
+              </div>
+
+              {/* CV Upload */}
+              <div className="space-y-1">
+                <label className="text-[11px] font-bold text-gray-400 uppercase tracking-widest ml-1">
+                  Curriculum Vitae (CV)
+                </label>
+                <div
+                  onClick={() => cvInputRef.current.click()}
+                  className="w-full p-4 border-2 border-dashed border-gray-200 rounded-2xl hover:border-yellow-400 bg-gray-50/50 transition-all cursor-pointer flex items-center justify-between"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 bg-yellow-100 rounded-lg text-yellow-600">
+                      <FileText className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-bold text-gray-700">
+                        {formData.cvName}
+                      </p>
+                      <p className="text-[10px] text-gray-400 uppercase font-bold tracking-tighter">
+                        Click to replace PDF
+                      </p>
+                    </div>
+                  </div>
+                  <Upload className="w-5 h-5 text-gray-400" />
+                  <input
+                    type="file"
+                    ref={cvInputRef}
+                    className="hidden"
+                    accept=".pdf"
+                  />
+                </div>
+              </div>
+
+              {/* Action Buttons - Moved Inside the Scroll Container */}
+              <div className="flex gap-4 pt-8 border-t border-gray-100">
+                <button
+                  type="button"
+                  onClick={onClose}
+                  className="flex-1 py-4 text-sm font-bold text-gray-500 bg-gray-100 rounded-2xl hover:bg-gray-200 transition-all"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className="flex-1 py-4 text-sm font-bold text-black bg-[#FACC15] rounded-2xl shadow-lg shadow-yellow-100 hover:bg-[#EAB308] transition-all flex items-center justify-center gap-2 active:scale-95"
+                >
+                  <Save className="w-4 h-4" /> Save All Changes
+                </button>
+              </div>
+            </form>
+          </div>
+        </motion.div>
+      </div>
+    </AnimatePresence>
   );
-}
+};
+
+export default ProfileEditModal;

@@ -7,9 +7,10 @@ import JoinAsCandidateCard from "../components/Interviwer-Profile/JoinAsCandidat
 import CandidateRequests from "../components/Interviwer-Profile/CandidateRequests";
 import UpcomingInterviews from "../components/Interviwer-Profile/UpcomingInterviews";
 import MyWalletPanel from "../components/Interviwer-Profile/MyWalletPanel";
-import ProfileEditModal from "../components/Interviwer-Profile/ProfileEditModal";
+// import ProfileEditModal from "../components/Interviwer-Profile/ProfileEditModal";
 import Toast from "../components/Interviwer-Profile/Toast";
 import LoadingScreen from "../components/LoadingScreen"; // Loading Animation Component එක
+import ProfileEditModal from "../components/Interviwer-Profile/ProfileEditModal";
 
 const pageBg = "bg-[#F8FAFC] min-h-screen";
 

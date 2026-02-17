@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Mail,
   MapPin,
@@ -9,7 +9,10 @@ import {
   Download,
 } from "lucide-react";
 
-const profile = {
+import ProfileEditModal from "./ProfileEditModal"; // ✅ adjust path if needed
+import Toast from "./Toast"; // ✅ adjust path if needed
+
+const defaultProfile = {
   name: "Priya Sharma",
   email: "priya.sharma@email.com",
   location: "Colombo, Sri Lanka",
@@ -22,9 +25,24 @@ const profile = {
   cv: "#",
 };
 
-export default function SidebarProfileCard({ onEdit }) {
+export default function SidebarProfileCard() {
+  const [profile, setProfile] = useState(defaultProfile);
+  const [openEdit, setOpenEdit] = useState(false);
+  const [toast, setToast] = useState(null);
+
   return (
     <aside className="w-full">
+      {/* ✅ Toast */}
+      {toast && (
+        <div className="mb-4">
+          <Toast
+            type={toast.type}
+            message={toast.message}
+            onClose={() => setToast(null)}
+          />
+        </div>
+      )}
+
       <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 sticky top-6">
         {/* Profile Image & Status Indicator */}
         <div className="relative w-28 h-28 mx-auto mb-6">
@@ -39,11 +57,12 @@ export default function SidebarProfileCard({ onEdit }) {
         {/* Edit Button & Name Area */}
         <div className="text-center mb-6">
           <button
-            onClick={onEdit}
+            onClick={() => setOpenEdit(true)}
             className="inline-flex items-center gap-1.5 text-xs font-semibold text-gray-600 bg-gray-100 px-4 py-2 rounded-full hover:bg-gray-200 transition-colors mb-3"
           >
             <Edit2 className="w-3 h-3" /> Edit Profile
           </button>
+
           <h2 className="text-xl font-bold text-gray-800">{profile.name}</h2>
           <p className="text-xs text-yellow-600 font-bold uppercase tracking-wider mt-1">
             Expert Interviewer
@@ -56,10 +75,12 @@ export default function SidebarProfileCard({ onEdit }) {
             <Mail className="w-4 h-4 text-gray-400" />
             <span className="truncate">{profile.email}</span>
           </div>
+
           <div className="flex items-center gap-3">
             <MapPin className="w-4 h-4 text-gray-400" />
             <span>{profile.location}</span>
           </div>
+
           <div className="flex items-center gap-3">
             <Calendar className="w-4 h-4 text-gray-400" />
             <span>Joined {profile.joinedDate}</span>
@@ -72,18 +93,23 @@ export default function SidebarProfileCard({ onEdit }) {
             <a
               href={profile.linkedin}
               target="_blank"
+              rel="noreferrer"
               className="p-2 bg-gray-50 rounded-lg hover:text-blue-600 transition-colors border border-gray-100"
+              title="LinkedIn"
             >
               <Linkedin className="w-4 h-4" />
             </a>
             <a
               href={profile.github}
               target="_blank"
+              rel="noreferrer"
               className="p-2 bg-gray-50 rounded-lg hover:text-black transition-colors border border-gray-100"
+              title="GitHub"
             >
               <Github className="w-4 h-4" />
             </a>
           </div>
+
           <a
             href={profile.cv}
             className="inline-flex items-center justify-center gap-2 bg-[#FACC15] text-[#0F172A] font-bold px-4 py-2.5 rounded-xl shadow-sm hover:scale-[1.02] active:scale-[0.98] transition"
@@ -117,6 +143,18 @@ export default function SidebarProfileCard({ onEdit }) {
           </div>
         </div>
       </div>
+
+      {/* ✅ Edit Modal */}
+      <ProfileEditModal
+        open={openEdit}
+        onClose={() => setOpenEdit(false)}
+        profile={profile}
+        onSave={(updated) => {
+          setProfile(updated); // ✅ local UI update
+          setToast({ type: "success", message: "Profile updated (Demo Only)" });
+        }}
+        setToast={setToast}
+      />
     </aside>
   );
 }
