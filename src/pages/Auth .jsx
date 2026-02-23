@@ -9,6 +9,7 @@ import RoleSwitcher from "../components/Auth/Roleswitcher";
 import AuthCard from "../components/Auth/AuthCard";
 import StepOneBasic from "../components/Auth/StepOneBasic";
 import StepTwoProfessional from "../components/Auth/StepTwoProfessional.jsx";
+import ColloQLogo from "../components/ColloQLogo.jsx";
 
 const fadeSlide = {
   initial: { opacity: 0, y: 10, filter: "blur(4px)" },
@@ -171,12 +172,9 @@ export default function AuthPage() {
             <div className="shrink-0 px-8 pt-8 lg:px-14">
               <div className="flex items-center justify-between gap-3">
                 <div className="flex items-center gap-2">
-                  <div className="grid h-9 w-9 place-items-center rounded-xl bg-black font-bold text-white">
-                    C
-                  </div>
                   <div className="leading-tight text-center">
-                    <div className="text-sm font-semibold text-black">
-                      Colloq
+                    <div>
+                      <ColloQLogo />
                     </div>
                     <div className="text-xs text-black/60">
                       Mock Interview Platform
@@ -191,21 +189,6 @@ export default function AuthPage() {
             {/* Form header */}
             <div className="shrink-0 px-8 pt-6 lg:px-14">
               <div className="flex items-center justify-between gap-3">
-                <div className="text-center">
-                  <div className="text-sm font-semibold text-black">
-                    {isInterviewer && isAuthed
-                      ? "Professional Profile"
-                      : "Sign in / Sign up"}
-                  </div>
-                  <div className="text-xs text-black/60">
-                    {isInterviewer
-                      ? isAuthed
-                        ? "Complete your interviewer details"
-                        : "Authenticate to continue"
-                      : "Access your mock interviews"}
-                  </div>
-                </div>
-
                 {/* Progress bar (Interviewer only) */}
                 {isInterviewer && isAuthed && (
                   <div className="w-44">
