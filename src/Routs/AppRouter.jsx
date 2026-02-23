@@ -4,6 +4,7 @@ import LandingPage from "../pages/LandingPage";
 import CandidateProfile from "../pages/CandidateProfile";
 import InterviwerProfile from "../pages/InterviwerProfile";
 import AuthPage from "../pages/Auth ";
+import Bookings from "../pages/bookings";
 
 function AppRouter() {
   return (
@@ -13,6 +14,7 @@ function AppRouter() {
         <Route path="/candidate-profile" element={<CandidateProfile />} />
         <Route path="/interviewer-profile" element={<InterviwerProfile />} />
         <Route path="/auth" element={<AuthPage />} />
+        <Route path="/bookings" element={<Bookings />} />
       </Routes>
     </BrowserRouter>
   );
