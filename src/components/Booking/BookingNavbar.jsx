@@ -1,18 +1,13 @@
 // src/components/Booking/BookingNavbar.jsx
 import React from "react";
+import ColloQLogo from "../ColloQLogo";
 
 export default function BookingNavbar() {
   return (
     <nav className="border-b border-gray-200 bg-white/80 backdrop-blur-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <div className="w-10 h-10 bg-[#FFD000] rounded-xl flex items-center justify-center shadow-lg shadow-yellow-500/20">
-            <span className="text-black font-black text-xl">C</span>
-          </div>
-          <span className="text-lg sm:text-xl font-bold tracking-tight text-gray-900">
-            Collo<span className="text-[#E8960A]">Q</span>
-          </span>
-        </div>
+          <ColloQLogo />        </div>
 
         <div className="flex items-center gap-3 sm:gap-6">
           <div className="hidden md:flex items-center gap-2 bg-gray-100 border border-gray-200 rounded-full px-4 py-2">
