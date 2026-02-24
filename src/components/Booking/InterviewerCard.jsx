@@ -4,12 +4,12 @@ import { Star, CheckCircle2, ChevronRight } from "lucide-react";
 
 export default function InterviewerCard({ person, onBook }) {
   return (
-    <div className="group bg-white border border-gray-100 rounded-[2.25rem] p-5 sm:p-6 shadow-sm hover:shadow-xl hover:shadow-gray-200/50 transition-all duration-300 flex flex-col">
+    <div className="group bg-white border border-gray-100 rounded-[1rem] p-5 sm:p-6 shadow-sm hover:shadow-xl hover:shadow-gray-200/50 transition-all duration-300 flex flex-col">
       <div className="flex items-start gap-4 mb-5">
         <div className="relative shrink-0">
           <img
             src={person.image}
-            className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl object-cover border-2 border-white shadow-md group-hover:scale-105 transition-transform"
+            className="w-16 h-16 sm:w-20 sm:h-20 rounded-1.5xl object-cover border-2 border-white shadow-md group-hover:scale-105 transition-transform"
             alt={person.name}
             loading="lazy"
           />
