@@ -11,6 +11,7 @@ import MyWalletPanel from "../components/Interviwer-Profile/MyWalletPanel";
 import Toast from "../components/Interviwer-Profile/Toast";
 import LoadingScreen from "../components/LoadingScreen"; // Loading Animation Component එක
 import ProfileEditModal from "../components/Interviwer-Profile/ProfileEditModal";
+import RequestCard from "../components/Interviwer-Profile/RequestCard";
 
 const pageBg = "bg-[#F8FAFC] min-h-screen";
 
@@ -57,7 +58,15 @@ export default function InterviwerProfile() {
               <main className="flex-1 flex flex-col gap-6">
                 <StatsRow />
                 <JoinAsCandidateCard />
-                <CandidateRequests setToast={setToast} />
+                <section>
+                  <h2 className="text-xl font-bold text-gray-800 mb-4">
+                    Pending Requests
+                  </h2>
+                  <div className="grid grid-cols-1 xl:grid-cols-2 gap-4">
+                    {/* RequestCard eka methana thama thiyenna ona */}
+                    <RequestCard />
+                  </div>
+                </section>
                 <UpcomingInterviews />
               </main>
             </div>
