@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom"; // Added this
 import { motion, AnimatePresence } from "framer-motion";
 import {
   CheckCircle,
@@ -15,12 +16,14 @@ import StatsCard from "../components/Candidate-Profile/StatsCard";
 import SessionCard from "../components/Candidate-Profile/SessionCard";
 import EditProfileModal from "../components/Candidate-Profile/EditProfileModal";
 import SessionDetailsModal from "../components/Candidate-Profile/SessionDetailsModal";
-import LoadingScreen from "../components/LoadingScreen"; // අලුතින් හැදූ Loading Component එක
+import LoadingScreen from "../components/LoadingScreen";
 
 // Mock Data
 import { upcomingSessions, completedSessions } from "../data/sessionData";
 
 const CandidateProfile = () => {
+  const navigate = useNavigate(); // Added this
+
   // --- States ---
   const [isLoading, setIsLoading] = useState(true);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
@@ -160,7 +163,10 @@ const CandidateProfile = () => {
                       </p>
                     </div>
                   </div>
-                  <button className="bg-black text-white px-6 py-3 rounded-xl font-bold mt-4 md:mt-0 flex items-center gap-2 hover:bg-gray-800 transition-all hover:gap-3 shadow-md active:scale-95">
+                  <button
+                    onClick={() => navigate("/bookings")}
+                    className="bg-black text-white px-6 py-3 rounded-xl font-bold mt-4 md:mt-0 flex items-center gap-2 hover:bg-gray-800 transition-all hover:gap-3 shadow-md active:scale-95"
+                  >
                     Book Now <ArrowRight className="w-4 h-4" />
                   </button>
                 </motion.div>

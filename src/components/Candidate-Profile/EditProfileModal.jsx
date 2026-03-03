@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Camera, Plus, Globe, Linkedin, Github } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { ArrowRight } from "lucide-react";  
+
 
 const EditProfileModal = ({ isOpen, onClose, userData, setUserData }) => {
   const [formData, setFormData] = useState(userData);
