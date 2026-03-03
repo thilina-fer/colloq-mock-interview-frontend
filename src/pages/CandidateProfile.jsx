@@ -92,43 +92,49 @@ const CandidateProfile = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6 }}
-            className="min-h-screen bg-gray-50 text-black font-sans pb-12 relative"
+            className="bg-[#F8FAFC] min-h-screen flex flex-col"
           >
-            {/* Header Area */}
-            <header className="max-w-6xl mx-auto px-4 py-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
-              <h1 className="text-xl font-bold flex items-center gap-2">
-                👋 Hello {userData.name.split(" ")[0]}, this is your dashboard!
-              </h1>
-              <button className="flex items-center gap-2 px-4 py-2 border border-gray-200 bg-white rounded-lg shadow-sm hover:bg-gray-50 text-sm font-medium transition-transform active:scale-95">
+            {/* Sticky Header Bar — matches Interviewer NavbarTop */}
+            <header className="w-full bg-white border-b border-[#E2E8F0] px-4 md:px-8 py-3 flex items-center justify-between sticky top-0 z-30 shadow-sm">
+              <div>
+                <div className="text-xs text-[#64748B] font-medium">
+                  Welcome back,
+                </div>
+                <div className="text-lg md:text-2xl font-bold text-[#0F172A] tracking-tight">
+                  👋 Hello {userData.name.split(" ")[0]}, your dashboard!
+                </div>
+              </div>
+              <button className="flex items-center gap-2 px-4 py-2 border border-[#E2E8F0] bg-white rounded-lg shadow-sm hover:bg-gray-50 text-sm font-medium transition-transform active:scale-95 text-[#0F172A]">
                 <Gift className="w-4 h-4 text-yellow-500" /> Refer & Earn
               </button>
             </header>
 
-            <main className="max-w-6xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-12 gap-8">
-              {/* Sidebar Section */}
-              <motion.div
+            {/* Page Body — same structure as Interviewer dashboard */}
+            <div className="flex-1 flex flex-col md:flex-row gap-6 max-w-7xl w-full mx-auto px-4 md:px-6 py-6">
+              {/* Sidebar — fixed width md:w-72, same as Interviewer sidebar */}
+              <motion.aside
                 initial={{ opacity: 0, x: -40 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.9 }}
-                className="lg:col-span-3"
+                className="md:w-72 w-full shrink-0 mb-4 md:mb-0"
               >
                 <Sidebar
                   userProfile={userData}
                   onEditClick={() => setIsEditModalOpen(true)}
                 />
-              </motion.div>
+              </motion.aside>
 
-              {/* Main Content Sections */}
-              <motion.section
+              {/* Main Content Area */}
+              <motion.main
                 variants={staggerContainer}
                 initial="initial"
                 animate="animate"
-                className="lg:col-span-9 space-y-8"
+                className="flex-1 flex flex-col gap-6"
               >
                 {/* Statistics Grid */}
                 <motion.div
                   variants={fadeInUp}
-                  className="grid grid-cols-1 md:grid-cols-3 gap-4"
+                  className="grid grid-cols-1 sm:grid-cols-3 gap-4"
                 >
                   {stats.map((stat, i) => (
                     <StatsCard key={i} {...stat} />
@@ -139,7 +145,7 @@ const CandidateProfile = () => {
                 <motion.div
                   variants={fadeInUp}
                   whileHover={{ scale: 1.005 }}
-                  className="bg-gradient-to-r from-yellow-400 to-yellow-500 rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between shadow-lg cursor-default"
+                  className="bg-gradient-to-r from-yellow-400 to-yellow-500 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between shadow-lg cursor-default border border-yellow-400"
                 >
                   <div className="flex items-center gap-6 text-black">
                     <div className="p-4 bg-white/30 backdrop-blur-md rounded-2xl">
@@ -161,7 +167,9 @@ const CandidateProfile = () => {
 
                 {/* Upcoming Sessions List */}
                 <motion.div variants={fadeInUp}>
-                  <h3 className="text-lg font-bold mb-4">Upcoming Sessions</h3>
+                  <h3 className="text-xl font-bold text-[#0F172A] mb-4">
+                    Upcoming Sessions
+                  </h3>
                   <div className="space-y-4">
                     {upcomingSessions.length > 0 ? (
                       upcomingSessions.map((session) => (
@@ -182,8 +190,10 @@ const CandidateProfile = () => {
                 </motion.div>
 
                 {/* Completed Sessions List */}
-                <motion.div variants={fadeInUp} className="mt-8">
-                  <h3 className="text-lg font-bold mb-4">Completed Sessions</h3>
+                <motion.div variants={fadeInUp}>
+                  <h3 className="text-xl font-bold text-[#0F172A] mb-4">
+                    Completed Sessions
+                  </h3>
                   <div className="space-y-4">
                     {completedSessions.length > 0 ? (
                       completedSessions.map((session) => (
@@ -200,8 +210,8 @@ const CandidateProfile = () => {
                     )}
                   </div>
                 </motion.div>
-              </motion.section>
-            </main>
+              </motion.main>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

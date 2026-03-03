@@ -48,9 +48,9 @@ export default function InterviwerProfile() {
               onEdit={() => setOpenEdit(true)}
             />
 
-            <div className="flex-1 flex flex-col md:flex-row gap-6 max-w-7xl w-full mx-auto px-2 md:px-6 py-4 md:py-8">
-              {/* Sidebar */}
-              <aside className="md:w-1/4 w-full mb-4 md:mb-0">
+            <div className="flex-1 flex flex-col md:flex-row gap-6 max-w-7xl w-full mx-auto px-4 md:px-6 py-6">
+              {/* Sidebar — fixed width md:w-72, same as Candidate sidebar */}
+              <aside className="md:w-72 w-full shrink-0 mb-4 md:mb-0">
                 <SidebarProfileCard />
               </aside>
 
@@ -59,10 +59,10 @@ export default function InterviwerProfile() {
                 <StatsRow />
                 <JoinAsCandidateCard />
                 <section>
-                  <h2 className="text-xl font-bold text-gray-800 mb-4">
+                  <h2 className="text-xl font-bold text-[#0F172A] mb-4">
                     Pending Requests
                   </h2>
-                  <div className="grid grid-cols-1 xl:grid-cols-2 gap-4">
+                  <div className="flex gap-4">
                     {/* RequestCard eka methana thama thiyenna ona */}
                     <RequestCard />
                   </div>
