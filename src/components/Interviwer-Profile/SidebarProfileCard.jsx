@@ -43,7 +43,7 @@ export default function SidebarProfileCard() {
         </div>
       )}
 
-      <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 sticky top-6">
+      <div className="bg-white rounded-2xl shadow border border-[#E2E8F0] p-6 sticky top-6">
         {/* Profile Image & Status Indicator */}
         <div className="relative w-28 h-28 mx-auto mb-6">
           <img

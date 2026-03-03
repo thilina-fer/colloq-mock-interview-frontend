@@ -3,7 +3,7 @@ import { Mail, MapPin, Calendar, Edit2 } from "lucide-react";
 
 const Sidebar = ({ userProfile, onEditClick }) => (
   <aside className="w-full">
-    <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 sticky top-6">
+    <div className="bg-white rounded-2xl shadow border border-[#E2E8F0] p-6 sticky top-6">
       <div className="relative w-28 h-28 mx-auto mb-6">
         <img
           src={userProfile.img}
@@ -20,10 +20,13 @@ const Sidebar = ({ userProfile, onEditClick }) => (
         >
           <Edit2 className="w-3 h-3" /> Edit Profile
         </button>
-        <h2 className="text-xl font-bold text-gray-800">{userProfile.name}</h2>
+        <h2 className="text-xl font-bold text-[#0F172A]">{userProfile.name}</h2>
+        <p className="text-xs text-yellow-600 font-bold uppercase tracking-wider mt-1">
+          Candidate
+        </p>
       </div>
 
-      <div className="space-y-4 text-sm text-gray-600 mb-6 border-t pt-6">
+      <div className="space-y-4 text-sm text-[#64748B] mb-6 border-t pt-6">
         <div className="flex items-center gap-3">
           <Mail className="w-4 h-4 text-gray-400" />
           <span>{userProfile.email}</span>
@@ -38,8 +41,8 @@ const Sidebar = ({ userProfile, onEditClick }) => (
         </div>
       </div>
 
-      <div className="bg-gray-50 rounded-xl p-4 mb-6 border border-gray-100">
-        <p className="text-xs leading-relaxed text-gray-600 italic">
+      <div className="bg-[#F8FAFC] rounded-xl p-4 mb-6 border border-[#E2E8F0]">
+        <p className="text-xs leading-relaxed text-[#64748B] italic">
           "{userProfile.bio}"
         </p>
       </div>
