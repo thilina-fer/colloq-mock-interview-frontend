@@ -6,7 +6,7 @@ import {
   Clock,
   XCircle,
 } from "lucide-react";
-import { PAYMENTS } from "./data";
+import { PAYMENTS } from "../../data/data";
 import StatusBadge from "./StatusBadge";
 
 const totalRevenue = PAYMENTS.filter((p) => p.status === "completed").reduce(

@@ -8,7 +8,7 @@ import {
   X,
   ChevronRight,
 } from "lucide-react";
-import { NAV_ITEMS } from "./data";
+import { NAV_ITEMS } from "../../data/data";
 
 const ICON_MAP = {
   dashboard: LayoutDashboard,

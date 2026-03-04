@@ -1,5 +1,5 @@
 import React from "react";
-import { CANDIDATES } from "./data";
+import { CANDIDATES } from "../../data/data";
 import StatusBadge from "./StatusBadge";
 
 function ScoreBar({ score }) {

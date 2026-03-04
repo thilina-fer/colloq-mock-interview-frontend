@@ -1,6 +1,6 @@
 import React from "react";
 import { Users, Briefcase, CalendarCheck, IndianRupee } from "lucide-react";
-import { STATS } from "./data";
+import { STATS } from "../../data/data";
 
 const ICON_COMPONENTS = {
   Users,
